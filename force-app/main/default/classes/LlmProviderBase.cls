@@ -23,7 +23,7 @@ public abstract with sharing class LlmProviderBase implements LlmProvider {
         if (status == 429) {
             return LlmException.RATE_LIMIT;
         }
-        if (status == 400) {
+        if (status == 400 || status == 413 || status == 422) {
             return LlmException.BAD_REQUEST;
         }
         if (status >= 500) {
@@ -53,6 +53,7 @@ public abstract with sharing class LlmProviderBase implements LlmProvider {
             return parseSuccess(request, res);
         }
         System.debug(LoggingLevel.WARN, 'LLM call failed with HTTP ' + status);
+        // Debug-log only (never in the exception, DB or UI). Error bodies do not contain our credentials.
         System.debug(LoggingLevel.DEBUG, 'LLM error body (truncated): ' + (res.getBody() == null ? '' : res.getBody().left(500)));
         throw LlmException.of(classifyError(status, res.getBody()));
     }

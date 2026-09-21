@@ -6,8 +6,13 @@ public with sharing class LlmProviderFactory {
             when 'Gemini' {
                 adapter = new GeminiProvider();
             }
+            when 'OpenAI' {
+                adapter = new OpenAiProvider();
+            }
+            when 'Claude' {
+                adapter = new ClaudeProvider();
+            }
             when else {
-                // OpenAI and Claude adapters are added in the next step.
                 throw LlmException.of(LlmException.UNSUPPORTED);
             }
         }

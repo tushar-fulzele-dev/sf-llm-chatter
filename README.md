@@ -20,3 +20,10 @@ Personal multi-LLM chat inside Salesforce. Built step by step.
     sf project deploy start --source-dir force-app --target-org llmChatter
     sf apex run test --class-names GeminiProviderTest --class-names LlmProviderTest --code-coverage --result-format human --wait 10 --target-org llmChatter
     sf apex run --file scripts/apex/test-chat.apex --target-org llmChatter
+
+## Step 4b: OpenAI and Claude adapters
+    sf project deploy start --source-dir force-app --target-org llmChatter
+    sf apex run test --class-names GeminiProviderTest --class-names OpenAiProviderTest --class-names ClaudeProviderTest --class-names LlmProviderTest --code-coverage --result-format human --wait 10 --target-org llmChatter
+    # Per connection: create EC_/NC_ in Setup (tick "Allow Formulas in HTTP Header"), enable the principal on
+    # LLM Chat User, copy its template from templates/connections/ into force-app/main/default/customMetadata/,
+    # deploy, then edit connName/model in scripts/apex/test-chat.apex and run it.

@@ -1,13 +1,15 @@
 @IsTest
 private class LlmProviderTest {
     @IsTest
-    static void factory_returnsGeminiAdapter() {
+    static void factory_returnsTheRightAdapter() {
         Assert.isInstanceOfType(LlmProviderFactory.forProvider('Gemini'), GeminiProvider.class);
+        Assert.isInstanceOfType(LlmProviderFactory.forProvider('OpenAI'), OpenAiProvider.class);
+        Assert.isInstanceOfType(LlmProviderFactory.forProvider('Claude'), ClaudeProvider.class);
     }
 
     @IsTest
-    static void factory_rejectsProvidersWithoutAnAdapter() {
-        for (String name : new List<String>{ 'OpenAI', 'Claude', 'Nonsense', null }) {
+    static void factory_rejectsUnknownProviders() {
+        for (String name : new List<String>{ 'Nonsense', null }) {
             try {
                 LlmProviderFactory.forProvider(name);
                 Assert.fail('Expected an LlmException for ' + name);
