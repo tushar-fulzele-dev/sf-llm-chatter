@@ -1,12 +1,9 @@
 {
   "packageDirectories": [
-    {
-      "path": "force-app",
-      "default": true
-    }
+    { "path": "force-app", "default": true }
   ],
-  "name": "LLM Chatter",
+  "name": "multi-llm-chat",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "67.0"
+  "sourceApiVersion": "62.0"
 }
