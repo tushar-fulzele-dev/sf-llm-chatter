@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Optional. Blank = applies to every connection of the provider.</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <fullName>Connection_Name__c</fullName>
+    <label>Connection Name</label>
+    <length>80</length>
+    <type>Text</type>
+</CustomField>

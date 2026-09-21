@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <defaultValue>NOW()</defaultValue>
+    <description>Drives the retention purge.</description>
+    <fullName>Last_Activity__c</fullName>
+    <label>Last Activity</label>
+    <type>DateTime</type>
+</CustomField>

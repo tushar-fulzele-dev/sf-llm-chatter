@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <defaultValue>false</defaultValue>
+    <description>You decide which models count as free. The app cannot verify this.</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <fullName>Is_Free_Eligible__c</fullName>
+    <label>Is Free Eligible</label>
+    <type>Checkbox</type>
+</CustomField>
